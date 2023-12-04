@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Edit Team Member</h1>
+  <form method="post" style="margin-bottom: 20px;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <!-- Create a div with class form-action-buttons to style the buttons -->
+    <div class="form-action-buttons">
+      <!-- Add a class to the save button for styling -->
+      <button type="submit" class="btn btn-save">Save</button>
+      {% if object %}
+        <!-- Keep the delete link, but add the btn-delete class for styling -->
+        <a href="{% url 'team:delete' object.pk %}" class="btn btn-delete">Delete</a>
+      {% endif %}
+    </div>
+  </form>
+{% endblock %}

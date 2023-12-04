@@ -1,0 +1,21 @@
+<!-- templates/team/team_member_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Team members</h1>
+  <p>You have {{ total_team_members }} team members.</p>
+  <a href="{% url 'team:add' %}">+</a>
+  <ul>
+    {% for member in team_members %}
+      <li>
+        <a href="{% url 'team:edit' member.pk %}">
+          {{ member.first_name }} {{ member.last_name }}
+          {% if member.role == 'admin' %}(admin){% endif %}
+        </a>
+        - {{ member.phone_number }} - {{ member.email }}
+      </li>
+    {% empty %}
+      <li>No team members.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

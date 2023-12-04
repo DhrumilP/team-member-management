@@ -1,0 +1,12 @@
+<!-- templates/team/team_member_confirm_delete.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Delete Team Member</h1>
+  <p>Are you sure you want to delete "{{ object }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Confirm Delete">
+    <a href="{% url 'team:list' %}">Cancel</a>
+  </form>
+{% endblock %}

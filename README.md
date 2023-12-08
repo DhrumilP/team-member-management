@@ -16,8 +16,8 @@ Team Management App is a Django web application designed for managing team membe
 ### Clone the Repository
 
 ```sh
-git clone https://github.com/<your-username>/<team-member-management>.git
-cd <team-member-management>
+git clone https://github.com/<your-github-username>/team-member-management.git
+cd team-member-management
 ```
 
 ### Create and Activate a Virtual Environment

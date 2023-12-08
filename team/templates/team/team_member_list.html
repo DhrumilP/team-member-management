@@ -1,21 +1,32 @@
-<!-- templates/team/team_member_list.html -->
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-  <h1>Team members</h1>
-  <p>You have {{ total_team_members }} team members.</p>
-  <a href="{% url 'team:add' %}">+</a>
+<div class="content-container">
+  <h1>Team Member Management</h1>
+  <p>You have {{ total_team_members }} team members</p>
+  <div class="add-member">
+    <a href="{% url 'team:add' %}" class="plus-sign">+ Add</a>
+  </div>
+</div>
+
+
+  <!-- Team member list -->
   <ul>
-    {% for member in team_members %}
-      <li>
-        <a href="{% url 'team:edit' member.pk %}">
-          {{ member.first_name }} {{ member.last_name }}
-          {% if member.role == 'admin' %}(admin){% endif %}
-        </a>
-        - {{ member.phone_number }} - {{ member.email }}
+      {% for member in team_members %}
+      <a class="member-card" href="{% url 'team:edit' member.pk %}">
+      <li class="team-member-item">
+          <img src="{% static 'person.jpeg' %}" alt="{{ member.first_name }} {{ member.last_name }} Profile Picture">
+          <div class="info">
+              <span class="name">
+                  {{ member.first_name }} {{ member.last_name }}
+                  {% if member.role == 'admin' %}<span class="admin-label">(admin)</span>{% endif %}
+              </span>
+              <span class="email">{{ member.email }}</span>
+              <span class="phone">{{ member.phone_number }}</span>
+          </div>
       </li>
-    {% empty %}
-      <li>No team members.</li>
-    {% endfor %}
+    </a>
+      {% endfor %}
   </ul>
 {% endblock %}

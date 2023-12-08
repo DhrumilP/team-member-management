@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import TeamMemberListView, TeamMemberCreateView, TeamMemberUpdateView, TeamMemberDeleteView
 
-app_name = 'team'  # This is the app_name that Django is expecting.
+app_name = 'team'  
 
 urlpatterns = [
     path('', TeamMemberListView.as_view(), name='list'),

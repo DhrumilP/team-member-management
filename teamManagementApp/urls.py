@@ -21,7 +21,7 @@ from team.views import TeamMemberListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('team/', include('team.urls')),  # your team app URLs
-    path('', TeamMemberListView.as_view(), name='home'),  # set the root URL
+    path('team/', include('team.urls')),  # team app URLs
+    path('', TeamMemberListView.as_view(), name='home'),  # root URL
 ]
 
